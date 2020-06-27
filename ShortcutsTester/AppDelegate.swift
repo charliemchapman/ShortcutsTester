@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, handlerFor intent: INIntent) -> Any? {
         switch intent {
-        case is CustomIntentIntent:
+        case is CustomTestIntent:
             return CustomIntentHandler()
         default:
             return nil

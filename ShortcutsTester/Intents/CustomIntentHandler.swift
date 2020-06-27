@@ -1,16 +1,16 @@
 import UIKit
 import Intents
 
-class CustomIntentHandler: NSObject, CustomIntentIntentHandling {
-    func handle(intent: CustomIntentIntent, completion: @escaping (CustomIntentIntentResponse) -> Void) {
-        completion(CustomIntentIntentResponse(code: CustomIntentIntentResponseCode.success, userActivity: nil))
+class CustomIntentHandler: NSObject, CustomTestIntentHandling {
+    func handle(intent: CustomTestIntent, completion: @escaping (CustomTestIntentResponse) -> Void) {
+        completion(CustomTestIntentResponse(code: CustomTestIntentResponseCode.success, userActivity: nil))
     }
 
-    func resolveCustom(for intent: CustomIntentIntent, with completion: @escaping (CustomTypeResolutionResult) -> Void) {
+    func resolveCustom(for intent: CustomTestIntent, with completion: @escaping (CustomTypeResolutionResult) -> Void) {
         completion(CustomTypeResolutionResult.success(with: CustomType(identifier: "1", display: "Custom 1")))
     }
 
-    func provideCustomOptionsCollection(for intent: CustomIntentIntent, with completion: @escaping (INObjectCollection<CustomType>?, Error?) -> Void) {
+    func provideCustomOptionsCollection(for intent: CustomTestIntent, with completion: @escaping (INObjectCollection<CustomType>?, Error?) -> Void) {
         let customTypes = [
             CustomType(identifier: "1", display: "Custom 1"),
             CustomType(identifier: "2", display: "Custom 2"),
